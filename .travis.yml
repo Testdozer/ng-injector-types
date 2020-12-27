@@ -1,0 +1,27 @@
+language: node_js
+node_js:
+- '12'
+sudo: false
+git:
+  depth: 1
+install:
+- npm ci
+cache:
+  directories:
+  - "$HOME/.npm"
+script:
+- npm run lint
+- npm run test
+- npm run build
+deploy:
+  provider: script
+  skip_cleanup: true
+  script:
+  - npx semantic-release
+  on:
+    tags: false
+    all_branches: true
+env:
+  global:
+  - secure: iYLW0ZwhL/JfwvkOYHvSHOwrnEADA4MY2YPtVob2jC7bbAwpYCuqnlPYmpGlQEt20IwLXQcGBglaNJALHNWbetTGG6X/6rBzIP4aiEIeKLvTYaiHmwGM+ixdyIq88oyNPkAtWMq2U2DDWNokIYZt4NiHE+EWNLHarDCNUkREzf4WN38HB2SRDkcM+LGx/+ATbwTBeOk8BlVl1O9lAm+Zz0El64asPF2f/qdfPgPuIySKEMSEnD/f8oRfuH1trSiTvS9X0O6LteTjVzcN8jW2qXaBnKeJVMY0DVeofy82meoKUT/hjUdSJDzvC+03p90cshJDanuJiZ2vesXHhnwl2xpMhDalqeBSW35g1otUDY2l5LyX9Te7OjMKc7MTUgD5VIh2qI/gG51v+khfXvyOLoiSWa0xRRn/cmzzkhGBkt+w+UUhONqN9TKxwgZtGHAdc4TRU5TddkEv22Y3FxQbbnQl9JWqmge777gizhpECBlHOpxg4dfjObgVv5VezCngzXrNd3gbWigsT2HMW71c2yTVi9/zXFA3QPeu4Uzk49T9b5MShnNPX0YlfxulJ/zn9YrMmySg+0X8y12rGbZ5zfc1HPMnew1GcdY5fH/RAAfnfE1CkzWeMKpZI/XVP8/5QZOSXR4EN+5JCmz3jgUTfQedERHx/dsD9X+FRzq5OeM=
+  - secure: RcR7v0ma6ztiY3yNtYbaZ2+7WJuxi9zWmjX3d4Djy5UKryOjfSY96jqUpefaII0gkE1Fopoe92kJe1AZGOwBtg1NoUAiD1ZCdsqWicNGjb3S7gLWgyhvsWtZ2ErenUqXpFNaJAPIB1uyCo028QY5j7WYsDz7EBPvBbPwYCXr94/7eIcadx+zuRMs+V/wHAcDw21nw42Q7sbfgG5j8F56B9RS475YLeO+RyuXdS3EE/pBCsbLzLUWwy1+1xfm6S+QNuoMuklgnKY6ejlsxvVE1/X+/QBgnyHIqOulmECfGlq0i/+CVdGpstMg2qQr8cdWIXp2PyQ9RtEdTZgYE3+rtzoEbzGIIm6FAN99IEZCqxkCLe7/xRMWsXZf2CcCLSck5bgWeUtbdY4Vj2g7jmFEpozFz0g83m6WMQ1evUACN1OpVvj4cuGr4noS5IWNoYEGu6NaJb93TsaM603oAYH6vaGhbbLUzRlKPAm6L6QvSdMj0mURmBdicXBKRNCw7mQV9NpeyQmlEgOmFuw3KaKMfmj26pcgLB4trjdRi3Jhbo4PMoyAdSFlYSfXrct+M4M1v4OGpk1FLTd1V1Rr5DMgB8ALzSbvg3E10eHR2hrprv8aw6VEs7YK8sAazsjvV3CLu3AJnFt7JVoBSrhAwa5Gt0M22e88CjUQN1l5y5FeZnM=

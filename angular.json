@@ -1,0 +1,56 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "ng-injector-types": {
+      "root": "projects/ng-injector-types",
+      "sourceRoot": "projects/ng-injector-types/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@testdozer/ng-cmd-builder:build",
+          "options": {
+            "command": "npm run types:build",
+            "assets": [
+              {
+                "source": "README.md",
+                "dest": "./dist/ng-injector-types"
+              },
+              {
+                "source": "./projects/ng-injector-types/package.json",
+                "dest": "./dist/ng-injector-types"
+              },
+              {
+                "source": "./projects/ng-injector-types/src/lib/build/schema.d.ts",
+                "dest": "./dist/ng-injector-types/lib/build"
+              }
+            ]
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ng-injector-types/src/test.ts",
+            "tsConfig": "projects/ng-injector-types/tsconfig.spec.json",
+            "karmaConfig": "projects/ng-injector-types/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/ng-injector-types/**/*.ts",
+              "projects/ng-injector-types/**/*.html"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "ng-injector-types",
+  "cli": {
+    "analytics": false
+  }
+}

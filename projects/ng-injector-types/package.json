@@ -1,0 +1,32 @@
+{
+  "name": "@testdozer/ng-injector-types",
+  "version": "0.0.0-semantically-released",
+  "author": "dvabuzyarov(at)gmail.com",
+  "license": "MIT",
+  "readme": "README.md",
+  "description": "Angular injector types",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/testdozer/ng-injector-types"
+  },
+  "keywords": [
+    "angular",
+    "injector",
+    "types"
+  ],
+  "bugs": {
+    "url": "https://github.com/testdozer/ng-injector-types/issues"
+  },
+  "peerDependencies": {
+    "@angular/core": "*",
+    "tslib": "*"
+  },
+  "devDependencies": {
+    "reflect-metadata": "*",
+    "jasmine": "*",
+    "ts-snippet": "*"
+  }
+}
