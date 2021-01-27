@@ -11,13 +11,13 @@ describe("Injector factory", () => {
     it("should infer the source's type", () => {
         const s = snippet({
             "snippet.ts": `
-                  import {InjectionFactory, TypeOfInjectionFactory} from "./injection-factory";
+                  import {InjectionFactory, TypeofInjectionFactory} from "./injection-factory";
                   class A implements InjectionFactory{
                     factory(){
                         return 1;
                     }
                   }
-                  const actual: TypeOfInjectionFactory<A> = undefined;
+                  const actual: TypeofInjectionFactory<A> = undefined;
       `
         }, compiler);
         s.expect("snippet.ts").toInfer("actual", "number");
