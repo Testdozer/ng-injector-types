@@ -28,6 +28,7 @@ So TypeofInjectionToken returns type T of [InjectionToken](https://angular.io/ap
 import { InjectionToken } from "@angular/core";
 import { JsonObject } from "@angular-devkit/core";
 import { ISchema } from "../schema";
+import { TypeofInjectionToken } from "@testdozer/ng-injector-types";
 
 export const OPTIONS = new InjectionToken<JsonObject & ISchema>("Options");
 
@@ -70,14 +71,14 @@ export class Options implements InjectionFactory {
 and here the way how to use it
 
 ```typescript
-import { TypeOfInjectionFactory } from "ng-injector-types";
+import { TypeofInjectionFactory } from "@testdozer/ng-injector-types";
 import { Options } from "./options";
 import { Inject } from "@angular/core";
 
 export class PrivateFilesProvider {
     constructor(
         @Inject(Options)
-        private readonly options: TypeOfInjectionFactory<Options>) {
+        private readonly options: TypeofInjectionFactory<Options>) {
     }
     
     async get() {
@@ -87,7 +88,7 @@ export class PrivateFilesProvider {
 ```
 or
 ```typescript
-import { TypeOfInjectionFactory } from "ng-injector-types";
+import { TypeofInjectionFactory } from "@testdozer/ng-injector-types";
 import { Options } from "./options";
 import { Inject } from "@angular/core";
 
@@ -97,7 +98,7 @@ export class PrivateFilesProvider {
     }
     
     async get() {
-        const {sourceRoot} = await (this.options as TypeOfInjectionFactory<Options>);
+        const {sourceRoot} = await (this.options as TypeofInjectionFactory<Options>);
     }
 }
 ```

@@ -8,6 +8,7 @@
   "publishConfig": {
     "access": "public"
   },
+  "main": "./lib/public_api.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/testdozer/ng-injector-types"
